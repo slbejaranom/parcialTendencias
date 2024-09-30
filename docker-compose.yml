@@ -11,6 +11,8 @@ services:
       - POSTGRES_DB=parcial
 
   webpage:
+    depends_on:
+      - postgresqldatabase
     build:
       dockerfile: Dockerfile
     ports:
