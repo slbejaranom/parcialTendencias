@@ -4,7 +4,7 @@ services:
   postgresqldatabase:
     image: bitnami/postgresql
     ports:
-      - 5432
+      - "5432"
     environment:
       - POSTGRES_USER=parcial
       - POSTGRES_PASSWORD=parcial
@@ -16,6 +16,6 @@ services:
     build:
       dockerfile: Dockerfile
     ports:
-      - 8080:8080
+      - "8080:8080"
     environment:
       - SPRING_PROFILES_ACTIVE=composed
