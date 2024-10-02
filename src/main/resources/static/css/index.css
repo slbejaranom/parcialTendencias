@@ -35,21 +35,26 @@ header p {
   width:98%;
   border: 1px solid red;
 }
-@media screen and (min-width: 751px) {
+@media screen and (min-width: 1051px) {
   .barraBusqueda{
     display:grid;
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media screen and (max-width:750px) {
+@media screen and (max-width:1050px) {
   .barraBusqueda{
     display:grid;
     grid-template-rows: repeat(3, 1fr);
   }
 }
-.barraBusqueda div {
+.barraBusqueda .busqueda {
   border: 1px solid green;
   display: grid;
   grid-template-columns: 1fr 2fr;
+}
+.barraBusqueda .botones {
+  border: 1px solid blue;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }

@@ -13,18 +13,20 @@
     <section class="main">
       <!---Acá va el layout de la tiendita-->
       <article class="barraBusqueda">
-        <div class="busquedaNombre">
+        <div class="busquedaNombre busqueda">
           <label>Nombre: </label>
           <input type="text" id="nombreArticulo" />
         </div>
-        <div class="busquedaCategoria">
+        <div class="busquedaCategoria busqueda">
           <label>Categoría:</label>
-          <select id="categoria">
+          <select id="categoria busqueda">
             <option value="none">Ninguna</option>
           </select>
         </div>
-        <div class="botonBuscar">
+        <div class="botonBuscar botones">
           <input type="button" id="consultar" value="Consultar"/>
+          <input type="button" id="agregarCategoria" value="Agregar Categoría"/>
+          <input type="button" id="agregarElemento" value="Agregar Elemento"/>
         </div>
       </article>
       <article class="articulos"></article>
