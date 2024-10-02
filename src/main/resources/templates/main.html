@@ -21,6 +21,7 @@
           <label>Categoría:</label>
           <select id="categoria busqueda">
             <option value="none">Ninguna</option>
+            <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
           </select>
         </div>
         <div class="botonBuscar botones">
