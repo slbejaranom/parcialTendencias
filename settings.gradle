@@ -1,1 +1,4 @@
 rootProject.name = 'parcial'
+include 'persistencia'
+include 'persistencia'
+
