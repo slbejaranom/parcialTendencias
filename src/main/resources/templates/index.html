@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
   <head>
+    <meta charset="utf-8"/>
     <title>Tienda de componentes electrónicos</title>
     <link th:href="@{/css/index.css}" rel="stylesheet"/>
   </head>
@@ -11,6 +12,22 @@
     </header>
     <section class="main">
       <!---Acá va el layout de la tiendita-->
+      <article class="barraBusqueda">
+        <div class="busquedaNombre">
+          <label>Nombre: </label>
+          <input type="text" id="nombreArticulo" />
+        </div>
+        <div class="busquedaCategoria">
+          <label>Categoría:</label>
+          <select id="categoria">
+            <option value="none">Ninguna</option>
+          </select>
+        </div>
+        <div class="botonBuscar">
+          <input type="button" id="consultar" value="Consultar"/>
+        </div>
+      </article>
+      <article class="articulos"></article>
     </section>
   </body>
 </html>
