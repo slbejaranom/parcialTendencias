@@ -19,8 +19,9 @@ $(document).ready(() => {
     }).done(function(){
       //Successful request
       alert("Categoría añadida correctamente");
-    }).fail(function(){
+    }).fail(function(error){
       //Failed request
+      alert("Falló la petición" + error);
     }).always(function() {
       //close modal after result
       $("#modalCategoria").modal();
