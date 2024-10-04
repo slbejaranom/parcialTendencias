@@ -6,12 +6,20 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring")
-public abstract class ElementMapper {
+public interface ElementMapper {
 
   @Mapping(source = "id", target = "id")
   @Mapping(source = "name", target = "name")
   @Mapping(source = "description", target = "description")
   @Mapping(source = "quantity", target = "quantity")
   @Mapping(source = "image", target = "image")
-  public abstract ElementDto mapDaoToDto(Element element);
+  ElementDto mapDtoToDao(Element element);
+
+  @Mapping(source = "id", target = "id")
+  @Mapping(source = "name", target = "name")
+  @Mapping(source = "description", target = "description")
+  @Mapping(source = "quantity", target = "quantity")
+  @Mapping(source = "image", target = "image")
+  @Mapping(constant = "0", target = "category.id")
+  Element mapDtoToDao(ElementDto element);
 }

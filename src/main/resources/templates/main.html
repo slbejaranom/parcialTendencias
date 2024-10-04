@@ -23,8 +23,8 @@
         </div>
         <div class="busquedaCategoria busqueda">
           <label>Categoría:</label>
-          <select id="categoria busqueda">
-            <option value="none">Ninguna</option>
+          <select id="categoria" class="busqueda">
+            <option value="none" selected>Ninguna</option>
             <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
           </select>
         </div>
@@ -47,6 +47,31 @@
     <div class="formRow">
       <a href="#" rel="modal:close">Cerrar</a>
       <input type="button" value="Crear" id="btnCrear"/>
+    </div>
+  </div>
+  <!--Modal de agregar nuevo producto-->
+  <div id="modalProducto" class="modal">
+    <div class="formContainer">
+      <div class="formRow">
+        <label>Nombre</label>
+        <input type="text" id="nombreProducto"/>
+      </div>
+      <div class="formRow">
+        <label>Descripción</label>
+        <input type="text" id="descripcionProducto"/>
+      </div>
+      <div class="formRow">
+        <label>Cantidad</label>
+        <input type="number" id="cantidadInicial" min="0" step="1"/>
+      </div>
+      <div class="formRow">
+        <label>Adjunte imagen</label>
+        <input type="file" id="imagen" name="imagen" accept="image/png, image/jpeg" />
+      </div>
+    </div>
+    <div class="formRow">
+      <a href="#" rel="modal:close">Cerrar</a>
+      <input type="button" value="Crear" id="btnCrearProducto"/>
     </div>
   </div>
   </body>

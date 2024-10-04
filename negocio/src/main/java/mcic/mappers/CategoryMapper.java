@@ -6,9 +6,9 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring")
-public abstract class CategoryMapper {
+public interface CategoryMapper {
 
   @Mapping(source = "id", target = "id")
   @Mapping(source = "name", target = "name")
-  public abstract CategoryDto mapDaoToDto(Category category);
+  CategoryDto mapDaoToDto(Category category);
 }

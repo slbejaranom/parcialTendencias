@@ -21,4 +21,10 @@ public class ThymeleafController {
     model.addAttribute("categories", categoryService.findAll());
     return "main";
   }
+
+  @GetMapping("/categories")
+  public String getCategories(Model model) {
+    model.addAttribute("categories", categoryService.findAll());
+    return "main :: #categoria";
+  }
 }
