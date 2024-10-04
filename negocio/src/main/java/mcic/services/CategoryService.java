@@ -22,4 +22,10 @@ public class CategoryService {
         .map(mapper::mapDaoToDto)
         .toList();
   }
+
+  public void saveCategory(String categoryName) {
+    Category newCategory = new Category();
+    newCategory.setName(categoryName);
+    categoryRepository.save(newCategory);
+  }
 }

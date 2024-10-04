@@ -5,6 +5,10 @@
     <meta charset="utf-8"/>
     <title>Tienda de componentes electrónicos</title>
     <link th:href="@{/css/index.css}" rel="stylesheet"/>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script type="text/javascript" th:src="@{/js/index.js}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
   </head>
   <body>
     <header>
@@ -32,5 +36,18 @@
       </article>
       <article class="articulos"></article>
     </section>
+  <!--Modal de agregar categoría-->
+  <div id="modalCategoria" class="modal">
+    <div class="formContainer">
+      <div class="formRow">
+        <label>Nombre de categoría</label>
+        <input type="text" id="nombreCategoria"/>
+      </div>
+    </div>
+    <div class="formRow">
+      <a href="#" rel="modal:close">Cerrar</a>
+      <input type="button" value="Crear" id="btnCrear"/>
+    </div>
+  </div>
   </body>
 </html>

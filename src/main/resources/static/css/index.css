@@ -58,3 +58,12 @@ header p {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
+.formContainer {
+  display: block;
+}
+.formRow {
+  margin-top: 1dvh;
+  margin-bottom: 1dvh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
