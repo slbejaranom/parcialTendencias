@@ -1,5 +1,6 @@
 package mcic.entities;
 
+import static jakarta.persistence.CascadeType.ALL;
 import static jakarta.persistence.FetchType.EAGER;
 
 import jakarta.persistence.Entity;
@@ -26,6 +27,6 @@ public class Category {
   private int id;
   private String name;
 
-  @OneToMany(fetch = EAGER, mappedBy = "category")
+  @OneToMany(fetch = EAGER, mappedBy = "category", cascade = ALL)
   List<Element> elements;
 }

@@ -12,5 +12,6 @@ public class ElementDto {
   private String name;
   private String description;
   private int quantity;
-  private byte[] image;
+  private String image;
+  private String category;
 }

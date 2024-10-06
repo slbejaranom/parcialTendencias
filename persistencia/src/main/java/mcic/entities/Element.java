@@ -1,5 +1,6 @@
 package mcic.entities;
 
+import static jakarta.persistence.CascadeType.ALL;
 import static jakarta.persistence.FetchType.EAGER;
 
 import jakarta.persistence.Column;
@@ -25,10 +26,10 @@ public class Element {
   private String name;
   private String description;
   private int quantity;
-  @Lob @Column(columnDefinition = "bytea")
+  @Column(columnDefinition = "bytea")
   private byte[] image;
 
-  @ManyToOne(fetch = EAGER)
-  @JoinColumn(name = "category_id", updatable = false, insertable = false)
+  @ManyToOne(fetch = EAGER, cascade = ALL)
+  @JoinColumn(name = "category_id")
   private Category category;
 }

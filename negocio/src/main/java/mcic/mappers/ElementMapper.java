@@ -12,14 +12,15 @@ public interface ElementMapper {
   @Mapping(source = "name", target = "name")
   @Mapping(source = "description", target = "description")
   @Mapping(source = "quantity", target = "quantity")
-  @Mapping(source = "image", target = "image")
-  ElementDto mapDtoToDao(Element element);
+  @Mapping(expression = "java(new String(element.getImage()))", target = "image")
+  @Mapping(source="category.name", target = "category")
+  ElementDto mapDaoToDto(Element element);
 
   @Mapping(source = "id", target = "id")
   @Mapping(source = "name", target = "name")
   @Mapping(source = "description", target = "description")
   @Mapping(source = "quantity", target = "quantity")
-  @Mapping(source = "image", target = "image")
-  @Mapping(constant = "0", target = "category.id")
+  @Mapping(expression = "java(element.getImage().getBytes())", target = "image")
+  @Mapping(source = "category", target = "category.id")
   Element mapDtoToDao(ElementDto element);
 }
