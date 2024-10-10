@@ -13,4 +13,5 @@ public interface ElementRepository extends JpaRepository<Element, String> {
   Page<Element> findAllByCategoryId(Pageable pageable, int categoryId);
   Page<Element> findAllByNameContainsAndCategoryId(Pageable pageable, String nameCoincidence,
       int categoryId);
+  Page<Element> findAllByNameContains(Pageable pageable, String nameCoincidence);
 }

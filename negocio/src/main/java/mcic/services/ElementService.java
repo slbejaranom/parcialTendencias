@@ -72,4 +72,19 @@ public class ElementService {
         .build();
 
   }
+
+  public ElementPageDto findElementsPaginatedByName(int pageNumber, String nameCoincidence) {
+    Pageable pageable = PageRequest.of(pageNumber, 8);
+    Page<Element> pagedElements = elementRepository.findAllByNameContains(pageable, nameCoincidence);
+    List<ElementDto> elementsFromDatabase = pagedElements
+        .stream()
+        .map(mapper::mapDaoToDto)
+        .toList();
+    return ElementPageDto
+        .builder()
+        .pageQuantity(pagedElements.getTotalPages())
+        .elements(elementsFromDatabase)
+        .build();
+
+  }
 }

@@ -51,6 +51,11 @@ public class ThymeleafController {
           elementService.findElementsPaginated(pageNumber));
       return "main :: articulos";
     }
+    if(category == -1) {
+      model.addAttribute("elements",
+          elementService.findElementsPaginatedByName(pageNumber, nameCoincidence));
+      return "main :: articulos";
+    }
     if(StringUtils.isBlank(nameCoincidence)) {
       model.addAttribute("elements",
           elementService.findElementsPaginatedByCategory(pageNumber, category));

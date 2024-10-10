@@ -10,8 +10,9 @@ $(document).ready(() => {
       url = '/findElements/0?category='+categoria;
     }
     if(nombre && categoria){
-      url = '/findElements/0?category='+categoria+'&nameCoincidence='+nameCoincidence;
+      url = '/findElements/0?category='+categoria+'&nameCoincidence='+nombre;
     }
+    console.log(url);
     $.ajax({
             method: "GET",
             url: url
