@@ -1,4 +1,28 @@
 $(document).ready(() => {
+  $(".btnBorrar").on("click", function() {
+      let artId = $(this).attr('artid');
+      console.log('clicked artId: '+artId);
+      $.ajax({
+        method: "DELETE",
+        url: '/elements/'+artId
+      })
+      .done(function() {
+        console.log('Elemento con Id: '+artId+' borrado satisfactoriamente');
+        $.ajax({
+          method: "GET",
+          url: '/findElements/0'
+        })
+        .done(function(data) {
+          if(data){
+            $("#contenedorArticulos").html(data);
+          }
+          else{
+            alert('No hay artículos con esas especificaciones.');
+          }
+      })
+    })
+  });
+
   $("#consultar").on("click", function(){
     let nombre = $("#nombreArticulo").val();
     let categoria = $("#categoria").val();
@@ -12,7 +36,6 @@ $(document).ready(() => {
     if(nombre && categoria){
       url = '/findElements/0?category='+categoria+'&nameCoincidence='+nombre;
     }
-    console.log(url);
     $.ajax({
             method: "GET",
             url: url
@@ -69,7 +92,21 @@ $(document).ready(() => {
                   "image": result_base64,
                   "category": categoria
                 })
-    }).done(function(){console.log("Elemento agregado")})
+    }).done(function(){
+      console.log("Elemento agregado")
+      $.ajax({
+                          method: "GET",
+                          url: '/findElements/0'
+                        })
+                  .done(function(data) {
+                    if(data){
+                      $("#contenedorArticulos").html(data);
+                    }
+                    else{
+                      alert('No hay artículos con esas especificaciones.');
+                    }
+                  })
+    })
       .fail(function(error){alert("Error del servidor, se pudo agregar: "+error)})});
     fileReader.readAsDataURL(imagen);
   });

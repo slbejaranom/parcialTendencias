@@ -27,6 +27,6 @@ public class Category {
   private int id;
   private String name;
 
-  @OneToMany(fetch = EAGER, mappedBy = "category", cascade = ALL)
+  @OneToMany(fetch = EAGER, mappedBy = "category")
   List<Element> elements;
 }

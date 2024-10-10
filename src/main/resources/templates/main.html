@@ -57,6 +57,10 @@
             <label th:text="${element.category}"></label>
           </div>
           <img th:src="${element.image}" width="150" height="150"/>
+          <div class="formRow">
+            <input type="button" value="Borrar" th:artId="${element.id}" class="btnBorrar"/>
+            <input type="button" value="Actualizar" id="btnActualizar"/>
+          </div>
         </div>
       </article>
     </section>

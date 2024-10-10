@@ -87,4 +87,8 @@ public class ElementService {
         .build();
 
   }
+
+  public void deleteElement(String id) {
+    elementRepository.deleteById(id);
+  }
 }
