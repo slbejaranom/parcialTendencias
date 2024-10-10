@@ -3,12 +3,27 @@ $(document).ready(() => {
     let nombre = $("#nombreArticulo").val();
     let categoria = $("#categoria").val();
     let url = '';
-    if(!nombre && (!categoria || categoria === 'none')){
-      url = '/elements/0'
+    if(!nombre && (!categoria || categoria === '-1')){
+      url = '/findElements/0'
+    }
+    if(!nombre && categoria){
+      url = '/findElements/0?category='+categoria;
     }
     if(nombre && categoria){
-      url = '/elements/0?categoria='+categoria;
+      url = '/findElements/0?category='+categoria+'&nameCoincidence='+nameCoincidence;
     }
+    $.ajax({
+            method: "GET",
+            url: url
+          })
+    .done(function(data) {
+      if(data){
+        $("#contenedorArticulos").html(data);
+      }
+      else{
+        alert('No hay artículos con esas especificaciones.');
+      }
+    })
   })
   $("#agregarCategoria").on("click", function() {
     $("#modalCategoria").modal();

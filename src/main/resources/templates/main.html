@@ -24,7 +24,7 @@
         <div class="busquedaCategoria busqueda">
           <label>Categoría:</label>
           <select id="categoria" class="busqueda">
-            <option value="none" selected>Ninguna</option>
+            <option value="-1" selected>Ninguna</option>
             <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
           </select>
         </div>
@@ -34,8 +34,8 @@
           <input type="button" id="agregarElemento" value="Agregar Elemento"/>
         </div>
       </article>
-      <article class="articulos">
-        <div class="articulo" th:each="element : ${elements.elements}">
+      <article class="articulos" id="contenedorArticulos">
+        <div class="articulo" th:each="element : ${elements.elements}" th:fragment="articulos">
           <div class="formRow">
             <label>Id:</label>
             <label th:text="${element.id}"></label>

@@ -10,4 +10,7 @@ import org.springframework.stereotype.Repository;
 public interface ElementRepository extends JpaRepository<Element, String> {
 
   Page<Element> findAll(Pageable pageable);
+  Page<Element> findAllByCategoryId(Pageable pageable, int categoryId);
+  Page<Element> findAllByNameContainsAndCategoryId(Pageable pageable, String nameCoincidence,
+      int categoryId);
 }

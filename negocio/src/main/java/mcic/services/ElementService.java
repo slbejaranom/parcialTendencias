@@ -42,4 +42,34 @@ public class ElementService {
         .elements(elementsFromDatabase)
         .build();
   }
+
+  public ElementPageDto findElementsPaginatedByCategory(int pageNumber, int category) {
+    Pageable pageable = PageRequest.of(pageNumber, 8);
+    Page<Element> pagedElements = elementRepository.findAllByCategoryId(pageable, category);
+    List<ElementDto> elementsFromDatabase = pagedElements
+        .stream()
+        .map(mapper::mapDaoToDto)
+        .toList();
+    return ElementPageDto
+        .builder()
+        .pageQuantity(pagedElements.getTotalPages())
+        .elements(elementsFromDatabase)
+        .build();
+
+  }
+
+  public ElementPageDto findElementsPaginatedByNameAndCategory(int pageNumber, String nameCoincidence, int category) {
+    Pageable pageable = PageRequest.of(pageNumber, 8);
+    Page<Element> pagedElements = elementRepository.findAllByNameContainsAndCategoryId(pageable, nameCoincidence, category);
+    List<ElementDto> elementsFromDatabase = pagedElements
+        .stream()
+        .map(mapper::mapDaoToDto)
+        .toList();
+    return ElementPageDto
+        .builder()
+        .pageQuantity(pagedElements.getTotalPages())
+        .elements(elementsFromDatabase)
+        .build();
+
+  }
 }
